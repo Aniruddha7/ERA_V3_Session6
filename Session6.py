@@ -17,58 +17,6 @@ from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 import logging
 import datetime
-
-class Net(nn.Module):
-    def __init__(self):
-        super(Net, self).__init__()
-        self.Layer1 = nn.Sequential(
-            nn.Conv2d(1, 8, 3, padding=1),
-            nn.ReLU(inplace=True),
-            nn.BatchNorm2d(8),
-            nn.MaxPool2d(2, 2)
-           )
-
-        self.Layer2 = nn.Sequential(
-            nn.Conv2d(8, 16, 3, padding=1),
-            nn.ReLU(inplace=True),
-            nn.BatchNorm2d(16),
-            nn.MaxPool2d(2, 2)
-           )
-
-        self.Layer3 = nn.Sequential(
-            nn.Conv2d(16, 32, 3),
-            nn.ReLU(inplace=True),
-            nn.BatchNorm2d(32),
-           )
-
-        self.Layer4 = nn.Sequential(
-            nn.Conv2d(32, 32, 3),
-            nn.ReLU(inplace=True),
-            nn.BatchNorm2d(32),
-            #nn.Dropout(0.1)
-        )
-
-        self.Layer5 = nn.Sequential(
-            nn.Conv2d(32, 32, 1),
-            nn.ReLU(inplace=True),
-            nn.BatchNorm2d(32),
-            nn.Dropout(0.1)
-        )
-
-        self.fc = nn.Sequential(
-            nn.Linear(32*3*3, 10)
-        )
-
-    def forward(self, x):
-        x = self.Layer1(x)
-        x = self.Layer2(x)
-        x = self.Layer3(x)
-        x = self.Layer4(x)
-        x = self.Layer5(x)
-        x = x.view(-1, 32*3*3)
-        x= self.fc(x)
-        return F.log_softmax(x)
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
