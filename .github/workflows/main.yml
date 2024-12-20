@@ -35,7 +35,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: trained-model
-        path: **/mnist_model_*.pth
+        path: "**/mnist_model_*.pth"
     
     - name: Check test results
       if: success()
