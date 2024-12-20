@@ -52,7 +52,7 @@ pip install -r requirements.txt
 
 
 ## Training the Model
-The model is trained using the MNIST dataset, which is automatically downloaded and preprocessed. You can run the training by executing the following:
+The model is trained for 17 epochs using the MNIST dataset, which is automatically downloaded and preprocessed. You can run the training by executing the following:
 ```
 python MNIST.py
 ```
@@ -63,6 +63,9 @@ Train the model for 17 epochs (adjustable).
 Apply data augmentations like random rotation and affine transformations.
 Save the best model based on validation accuracy.
 The saved model will be named ```mnist_best_model_<timestamp>.pth.```
+
+### Train logs 
+
 
 ## Testing the Model
 To validate the model's architecture and hyperparameters, use the ```test_model.py script```. This script performs the following tests:
