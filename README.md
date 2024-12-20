@@ -59,7 +59,7 @@ python MNIST.py
 
 This will:
 
-Train the model for 17 epochs (adjustable).
+The model is trained for 17 epochs.
 Apply data augmentations like random rotation and affine transformations.
 Save the best model based on validation accuracy.
 The saved model will be named ```mnist_best_model_<timestamp>.pth.```
