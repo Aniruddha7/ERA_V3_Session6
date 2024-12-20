@@ -2,7 +2,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
-!pip install tqdm
 from tqdm import tqdm
 from torchvision import datasets, transforms
 import logging
