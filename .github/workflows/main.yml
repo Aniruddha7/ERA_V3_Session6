@@ -1,0 +1,46 @@
+name: ML Pipeline
+
+on: [push]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install torch torchvision pytest  
+    
+    - name: Run model validation tests
+      run: |
+        echo "🔍 Running validation tests..."
+        echo "Test 1: Testing the model architecture to check if it has 
+                      less than 20000 parameters.
+                      Batch Normalization
+                      FC Layer
+                      Dropout"
+        echo "Test 2: Checking the model if has less than 20 epochs"
+        pytest test_model.py -v
+    
+    - name: Upload trained model
+      if: success()
+      uses: actions/upload-artifact@v2
+      with:
+        name: trained-model
+        path: mnist_model_*.pth
+    
+    - name: Check test results
+      if: success()
+      run: |
+        echo "✅ All tests passed!"
+        echo "✓ Model size is within limits (< 20000 parameters)
+                Has BN, FC layer and Dropouts"
+        echo "✓ Trained with less than 20 epochs"
