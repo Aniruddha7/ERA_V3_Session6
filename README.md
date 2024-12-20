@@ -64,8 +64,8 @@ Apply data augmentations like random rotation and affine transformations.
 Save the best model based on validation accuracy.
 The saved model will be named ```mnist_best_model_<timestamp>.pth.```
 
-### Train logs 
-
+### Training logs with validation accuracy of 99.48% at 14th epoch
+![](https://github.com/Aniruddha7/ERA_V3_Session6/blob/main/train_logs.jpg)
 
 ## Testing the Model
 To validate the model's architecture and hyperparameters, use the ```test_model.py script```. This script performs the following tests:
